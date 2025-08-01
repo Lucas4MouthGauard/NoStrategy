@@ -444,9 +444,7 @@ const StrategyRoulette = () => {
       {/* 标签页 */}
       <div className="flex justify-center space-x-4 mb-6">
         {[
-          { id: 'spin', name: '🎰 Spin', emoji: '🎰' },
-          { id: 'history', name: '📊 History', emoji: '📊' },
-          { id: 'analysis', name: '📈 Analysis', emoji: '📈' }
+          { id: 'spin', name: '🎰 Spin', emoji: '🎰' }
         ].map(tab => (
           <button
             key={tab.id}
@@ -752,17 +750,7 @@ const StrategyRoulette = () => {
         </div>
       )}
 
-      {/* 免责声明 */}
-      <div className="bg-gradient-to-r from-red-600/20 to-orange-600/20 rounded-2xl p-6 border border-red-500/30">
-        <div className="text-center space-y-4">
-          <h3 className="text-xl font-bold text-white">⚠️ 重要声明</h3>
-          <p className="text-gray-300 text-sm leading-relaxed">
-            本策略轮盘仅供娱乐目的，不构成投资建议。所有策略都是随机生成的，不代表真实的投资建议。
-            加密货币投资存在极高风险，可能导致本金完全损失。请谨慎投资，不要投入超过你能承受损失的资金。
-            记住：策略是骗人的，感觉才是真实的！但这里的感觉也是随机的！
-          </p>
-        </div>
-      </div>
+
     </div>
   )
 }

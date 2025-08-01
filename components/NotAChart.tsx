@@ -745,9 +745,7 @@ const NotAChart = () => {
         </div>
 
         <div className="mt-8 text-center">
-          <p className="text-gray-400 text-sm">
-            Chart types auto-switch every 1 second | Hover for detailed data | FOMO index updates in real-time
-          </p>
+
           <div className="flex justify-center mt-4 space-x-2">
             {charts.map((_, index) => (
               <div

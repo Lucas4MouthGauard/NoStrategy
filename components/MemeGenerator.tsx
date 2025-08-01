@@ -527,7 +527,7 @@ const MemeGenerator = () => {
 
             {/* 右侧：预览区域 */}
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white mb-4">👀 预览</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">👀</h3>
 
               {/* 画布预览 */}
               <div className="bg-white/5 rounded-lg p-4">
