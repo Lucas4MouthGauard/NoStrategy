@@ -2,50 +2,43 @@
 
 import React, { useState } from 'react'
 import Header from '../components/Header'
-import StonksTracker from '../components/StonksTracker'
+
 import NotAChart from '../components/NotAChart'
 import MemeGenerator from '../components/MemeGenerator'
 import StrategyRoulette from '../components/StrategyRoulette'
-import StonksLeaderboard from '../components/StonksLeaderboard'
 import MarketSentimentAnalyzer from '../components/MarketSentimentAnalyzer'
-import NFTCreator from '../components/NFTCreator'
 import ChatRoom from '../components/ChatRoom'
+import RealTimePrices from '../components/RealTimePrices'
 import Footer from '../components/Footer'
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState('stonks')
+  const [activeSection, setActiveSection] = useState('prices')
 
   const sections = [
-    { id: 'stonks', name: 'Stonks追踪', icon: '📈' },
-    { id: 'chart', name: '抽象图表', icon: '📊' },
-    { id: 'sentiment', name: '情绪分析', icon: '😨' },
-    { id: 'meme', name: 'Meme生成器', icon: '🎭' },
-    { id: 'nft', name: 'NFT创建器', icon: '🎨' },
-    { id: 'chat', name: '聊天室', icon: '💬' },
-    { id: 'roulette', name: '策略轮盘', icon: '🎰' },
-    { id: 'leaderboard', name: '排行榜', icon: '🏆' },
+    { id: 'prices', name: 'Real-time Prices', icon: '💰' },
+    { id: 'chart', name: 'Abstract Chart', icon: '📊' },
+    { id: 'sentiment', name: 'Market Sentiment', icon: '😨' },
+    { id: 'meme', name: 'Meme Generator', icon: '🎭' },
+    { id: 'chat', name: 'Chat Room', icon: '💬' },
+    { id: 'roulette', name: 'Strategy Roulette', icon: '🎰' },
   ]
 
   const renderSection = () => {
     switch (activeSection) {
-      case 'stonks':
-        return <StonksTracker />
+      case 'prices':
+        return <RealTimePrices />
       case 'chart':
         return <NotAChart />
       case 'sentiment':
         return <MarketSentimentAnalyzer />
       case 'meme':
         return <MemeGenerator />
-      case 'nft':
-        return <NFTCreator />
       case 'chat':
         return <ChatRoom />
       case 'roulette':
         return <StrategyRoulette />
-      case 'leaderboard':
-        return <StonksLeaderboard />
       default:
-        return <StonksTracker />
+        return <RealTimePrices />
     }
   }
 
@@ -53,7 +46,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-nostrategy-dark via-purple-900 to-black">
       <Header />
       
-      {/* 导航菜单 */}
+      {/* Navigation Menu */}
       <nav className="bg-black/50 backdrop-blur-sm border-b border-purple-500/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8 overflow-x-auto py-4">
@@ -75,7 +68,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* 主内容区域 */}
+      {/* Main Content Area */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="animate-fade-in">
           {renderSection()}

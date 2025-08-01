@@ -72,7 +72,7 @@ const StrategyRoulette = () => {
         '忽略所有风险警告',
         '相信"这次不一样"'
       ],
-      tokens: ['SOL', 'BONK', 'JUP', 'WIF'],
+      tokens: [],
       confidence: 95,
       marketSentiment: '极度乐观',
       timeframe: '1-7天'
@@ -91,7 +91,7 @@ const StrategyRoulette = () => {
         '长期持有至少1年',
         '不要被短期波动影响'
       ],
-      tokens: ['BTC', 'ETH', 'SOL'],
+      tokens: [],
       confidence: 85,
       marketSentiment: '稳健看涨',
       timeframe: '1-5年'
@@ -110,7 +110,7 @@ const StrategyRoulette = () => {
         '不要恋战',
         '及时止盈'
       ],
-      tokens: ['热门币种'],
+      tokens: [],
       confidence: 70,
       marketSentiment: '趋势跟随',
       timeframe: '1-7天'
@@ -131,7 +131,7 @@ const StrategyRoulette = () => {
         '设置严格止损',
         '关注市场情绪指标'
       ],
-      tokens: ['做空主流币'],
+      tokens: [],
       confidence: 60,
       marketSentiment: '悲观',
       timeframe: '1-30天'
@@ -150,7 +150,7 @@ const StrategyRoulette = () => {
         '关注恐慌指数',
         '准备抄底资金'
       ],
-      tokens: ['USDT', 'USDC'],
+      tokens: [],
       confidence: 75,
       marketSentiment: '谨慎',
       timeframe: '1-6个月'
@@ -171,7 +171,7 @@ const StrategyRoulette = () => {
         '定期调整参数',
         '监控市场变化'
       ],
-      tokens: ['BTC', 'ETH', 'SOL'],
+      tokens: [],
       confidence: 80,
       marketSentiment: '中性',
       timeframe: '1-3个月'
@@ -190,7 +190,7 @@ const StrategyRoulette = () => {
         '注意手续费成本',
         '使用自动化工具'
       ],
-      tokens: ['主流币种'],
+      tokens: [],
       confidence: 90,
       marketSentiment: '技术性',
       timeframe: '分钟级'
@@ -211,7 +211,7 @@ const StrategyRoulette = () => {
         '借钱也要买',
         '相信"这次不一样"'
       ],
-      tokens: ['任何暴涨币'],
+      tokens: [],
       confidence: 50,
       marketSentiment: '极度FOMO',
       timeframe: '分钟级'
@@ -230,7 +230,7 @@ const StrategyRoulette = () => {
         '相信社区力量',
         '准备归零'
       ],
-      tokens: ['新币种'],
+      tokens: [],
       confidence: 30,
       marketSentiment: '疯狂',
       timeframe: '1-7天'
@@ -251,7 +251,7 @@ const StrategyRoulette = () => {
         '忽略所有卖出信号',
         '相信比特币终将到100万'
       ],
-      tokens: ['BTC', 'ETH'],
+      tokens: [],
       confidence: 95,
       marketSentiment: '长期看涨',
       timeframe: '10年+'
@@ -270,7 +270,7 @@ const StrategyRoulette = () => {
         '不要被短期波动影响',
         '考虑遗产规划'
       ],
-      tokens: ['BTC', 'ETH', 'SOL'],
+      tokens: [],
       confidence: 85,
       marketSentiment: '长期价值',
       timeframe: '终身'
@@ -392,7 +392,7 @@ const StrategyRoulette = () => {
         id: Date.now().toString(),
         strategy: randomStrategy,
         timestamp: Date.now(),
-        userAddress: publicKey || undefined,
+        userAddress: publicKey?.toString() || undefined,
         likes: 0,
         shares: 0,
         comments: 0
@@ -410,21 +410,7 @@ const StrategyRoulette = () => {
     )
   }
 
-  // 分享策略
-  const shareStrategy = (strategy: Strategy) => {
-    const text = `🎰 NoStrategy策略轮盘：${strategy.name} ${strategy.emoji}\n\n${strategy.description}\n\n风险等级：${strategy.risk.toUpperCase()}\n潜力等级：${strategy.potential.toUpperCase()}\n\n#NoStrategy #加密货币 #投资策略`
-    
-    if (navigator.share) {
-      navigator.share({
-        title: `NoStrategy策略轮盘 - ${strategy.name}`,
-        text: text,
-        url: window.location.href
-      })
-    } else {
-      navigator.clipboard.writeText(text)
-      alert('策略已复制到剪贴板！')
-    }
-  }
+
 
   // 初始化数据
   useEffect(() => {
@@ -446,41 +432,21 @@ const StrategyRoulette = () => {
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="text-4xl font-bold text-white mb-4">
-          🎰 NoStrategy策略轮盘
+          🎰 NoStrategy Strategy Roulette
         </h2>
         <p className="text-gray-300 text-lg">
-          随机生成你的投资策略，模仿微策略的"专业"建议
+          Randomly generate your investment strategy, mimicking MicroStrategy's "professional" advice
         </p>
       </div>
 
-      {/* 实时价格状态 */}
-      <div className="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-2xl p-4 border border-blue-500/30">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <span className="text-white font-semibold">实时价格</span>
-            <div className="flex space-x-4 text-sm">
-              <span className="text-green-400">BTC: ${marketData.btcPrice.toLocaleString()}</span>
-              <span className="text-blue-400">ETH: ${marketData.ethPrice.toLocaleString()}</span>
-              <span className="text-purple-400">SOL: ${marketData.solPrice.toFixed(2)}</span>
-            </div>
-          </div>
-          <div className="flex items-center space-x-2">
-            <span className="text-gray-400 text-sm">
-              最后更新: {lastUpdate.toLocaleTimeString()}
-            </span>
-            {isLoadingPrices && (
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-400"></div>
-            )}
-          </div>
-        </div>
-      </div>
+
 
       {/* 标签页 */}
       <div className="flex justify-center space-x-4 mb-6">
         {[
-          { id: 'spin', name: '🎰 转轮盘', emoji: '🎰' },
-          { id: 'history', name: '📊 历史记录', emoji: '📊' },
-          { id: 'analysis', name: '📈 市场分析', emoji: '📈' }
+          { id: 'spin', name: '🎰 Spin', emoji: '🎰' },
+          { id: 'history', name: '📊 History', emoji: '📊' },
+          { id: 'analysis', name: '📈 Analysis', emoji: '📈' }
         ].map(tab => (
           <button
             key={tab.id}
@@ -501,7 +467,7 @@ const StrategyRoulette = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* 左侧：轮盘 */}
             <div className="text-center space-y-6">
-              <h3 className="text-2xl font-bold text-white mb-4">🎰 策略轮盘</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">🎰 Strategy Roulette</h3>
               
               {/* 轮盘容器 */}
               <div className="relative w-80 h-80 mx-auto">
@@ -542,18 +508,18 @@ const StrategyRoulette = () => {
                   disabled={isSpinning}
                   className="w-full py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 disabled:opacity-50 text-white rounded-lg font-semibold text-lg"
                 >
-                  {isSpinning ? '🎰 旋转中...' : '🎰 开始转轮盘'}
+                  {isSpinning ? '🎰 Spinning...' : '🎰 Spin Roulette'}
                 </button>
                 
                 <div className="text-gray-400">
-                  已转动 {spinCount} 次
+                  Spun {spinCount} times
                 </div>
               </div>
             </div>
 
             {/* 右侧：策略结果 */}
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white mb-4">📋 策略结果</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">📋 Strategy Result</h3>
               
               {currentStrategy ? (
                 <div className="space-y-6">
@@ -569,29 +535,29 @@ const StrategyRoulette = () => {
 
                     <div className="grid grid-cols-2 gap-4 mb-4">
                       <div>
-                        <span className="text-gray-400 text-sm">风险等级</span>
+                        <span className="text-gray-400 text-sm">Risk Level</span>
                         <div className={`font-semibold ${getRiskColor(currentStrategy.risk)}`}>
                           {currentStrategy.risk.toUpperCase()}
                         </div>
                       </div>
                       <div>
-                        <span className="text-gray-400 text-sm">潜力等级</span>
+                        <span className="text-gray-400 text-sm">Potential Level</span>
                         <div className={`font-semibold ${getPotentialColor(currentStrategy.potential)}`}>
                           {getPotentialIcon(currentStrategy.potential)} {currentStrategy.potential.toUpperCase()}
                         </div>
                       </div>
                       <div>
-                        <span className="text-gray-400 text-sm">信心指数</span>
+                        <span className="text-gray-400 text-sm">Confidence</span>
                         <div className="text-white font-semibold">{currentStrategy.confidence}%</div>
                       </div>
                       <div>
-                        <span className="text-gray-400 text-sm">时间框架</span>
+                        <span className="text-gray-400 text-sm">Timeframe</span>
                         <div className="text-white font-semibold">{currentStrategy.timeframe}</div>
                       </div>
                     </div>
 
                     <div>
-                      <span className="text-gray-400 text-sm">市场情绪</span>
+                      <span className="text-gray-400 text-sm">Market Sentiment</span>
                       <div className={`font-semibold ${getSentimentColor(currentStrategy.marketSentiment)}`}>
                         {currentStrategy.marketSentiment}
                       </div>
@@ -600,7 +566,7 @@ const StrategyRoulette = () => {
 
                   {/* 投资建议 */}
                   <div className="bg-white/5 rounded-lg p-6">
-                    <h5 className="text-lg font-bold text-white mb-3">💡 投资建议</h5>
+                    <h5 className="text-lg font-bold text-white mb-3">💡 Investment Advice</h5>
                     <ul className="space-y-2">
                       {currentStrategy.advice.map((advice, index) => (
                         <li key={index} className="flex items-start space-x-2">
@@ -611,38 +577,26 @@ const StrategyRoulette = () => {
                     </ul>
                   </div>
 
-                  {/* 推荐币种 */}
-                  <div className="bg-white/5 rounded-lg p-6">
-                    <h5 className="text-lg font-bold text-white mb-3">🪙 推荐币种</h5>
-                    <div className="flex flex-wrap gap-2">
-                      {currentStrategy.tokens.map(token => (
-                        <span key={token} className="px-3 py-1 bg-purple-600/20 border border-purple-500/30 rounded-full text-purple-300 text-sm">
-                          {token}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
                   {/* 操作按钮 */}
                   <div className="flex space-x-4">
-                    <button
-                      onClick={() => shareStrategy(currentStrategy)}
-                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold"
-                    >
-                      📤 分享策略
-                    </button>
                     <button
                       onClick={spinRoulette}
                       className="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg font-semibold"
                     >
-                      🎰 再转一次
+                      🎰 Spin Again
+                    </button>
+                    <button
+                      onClick={() => alert('Buy $NoStrategy - Coming Soon!')}
+                      className="flex-1 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white py-2 px-4 rounded-lg font-semibold"
+                    >
+                      🚀 Buy $NoStrategy
                     </button>
                   </div>
                 </div>
               ) : (
                 <div className="text-center py-12">
                   <div className="text-6xl mb-4">🎰</div>
-                  <p className="text-gray-300 text-lg">点击转轮盘开始获取策略</p>
+                  <p className="text-gray-300 text-lg">Click the roulette to start getting strategies</p>
                 </div>
               )}
             </div>
@@ -653,25 +607,25 @@ const StrategyRoulette = () => {
       {activeTab === 'history' && (
         <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/30">
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-2xl font-bold text-white">📊 历史记录</h3>
+            <h3 className="text-2xl font-bold text-white">📊 History</h3>
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
               className="bg-white/10 border border-purple-500/30 rounded px-3 py-1 text-white"
             >
-              <option value="all">所有策略</option>
-              <option value="bullish">看涨策略</option>
-              <option value="bearish">看跌策略</option>
-              <option value="neutral">中性策略</option>
-              <option value="fomo">FOMO策略</option>
-              <option value="hodl">HODL策略</option>
+              <option value="all">All Strategies</option>
+              <option value="bullish">Bullish Strategies</option>
+              <option value="bearish">Bearish Strategies</option>
+              <option value="neutral">Neutral Strategies</option>
+              <option value="fomo">FOMO Strategies</option>
+              <option value="hodl">HODL Strategies</option>
             </select>
           </div>
 
           {rouletteHistory.length === 0 ? (
             <div className="text-center py-12">
               <div className="text-6xl mb-4">📊</div>
-              <p className="text-gray-300 text-lg">还没有历史记录，快去转轮盘吧！</p>
+              <p className="text-gray-300 text-lg">No history yet, go spin the roulette!</p>
             </div>
           ) : (
             <div className="space-y-4 max-h-96 overflow-y-auto">
@@ -696,12 +650,6 @@ const StrategyRoulette = () => {
                         >
                           <span>❤️</span>
                           <span>{item.likes}</span>
-                        </button>
-                        <button
-                          onClick={() => shareStrategy(item.strategy)}
-                          className="text-blue-400 hover:text-blue-300"
-                        >
-                          📤
                         </button>
                       </div>
                     </div>

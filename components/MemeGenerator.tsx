@@ -359,19 +359,19 @@ const MemeGenerator = () => {
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="text-4xl font-bold text-white mb-4">
-          🎭 NoStrategy Meme生成器
+          🎭 NoStrategy Meme Generator
         </h2>
         <p className="text-gray-300 text-lg">
-          上传表情 + 输入Token，生成"某个币"梗图
+          Upload emoji + Enter token, generate "some coin" memes
         </p>
       </div>
 
       {/* 标签页 */}
       <div className="flex justify-center space-x-4 mb-6">
         {[
-          { id: 'create', name: '🎨 创建Meme', emoji: '🎨' },
-          { id: 'gallery', name: '🖼️ 我的作品', emoji: '🖼️' },
-          { id: 'trending', name: '🔥 热门', emoji: '🔥' }
+          { id: 'create', name: '🎨 Create Meme', emoji: '🎨' },
+          { id: 'gallery', name: '🖼️ My Works', emoji: '🖼️' },
+          { id: 'trending', name: '🔥 Trending', emoji: '🔥' }
         ].map(tab => (
           <button
             key={tab.id}
@@ -392,11 +392,11 @@ const MemeGenerator = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* 左侧：编辑区域 */}
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white mb-4">🎨 编辑Meme</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">🎨 Edit Meme</h3>
 
               {/* 模板选择 */}
               <div>
-                <label className="block text-gray-300 mb-3">选择模板</label>
+                <label className="block text-gray-300 mb-3">Select Template</label>
                 <div className="grid grid-cols-3 gap-3">
                   {memeTemplates.map(template => (
                     <button
@@ -420,7 +420,7 @@ const MemeGenerator = () => {
 
               {/* 上传图片 */}
               <div>
-                <label className="block text-gray-300 mb-3">或上传自定义图片</label>
+                <label className="block text-gray-300 mb-3">Or Upload Custom Image</label>
                 <input
                   ref={fileInputRef}
                   type="file"
@@ -432,26 +432,26 @@ const MemeGenerator = () => {
                   onClick={() => fileInputRef.current?.click()}
                   className="w-full p-4 border-2 border-dashed border-gray-600 rounded-lg hover:border-purple-500 transition-colors text-gray-300"
                 >
-                  📁 点击上传图片
+                  📁 Click to Upload Image
                 </button>
               </div>
 
               {/* Token名称 */}
               <div>
-                <label className="block text-gray-300 mb-3">Token名称</label>
+                <label className="block text-gray-300 mb-3">Token Name</label>
                 <div className="flex space-x-2">
                   <input
                     type="text"
                     value={tokenName}
                     onChange={(e) => setTokenName(e.target.value.toUpperCase())}
-                    placeholder="输入Token名称，如：SOL"
+                    placeholder="Enter token name, e.g.: SOL"
                     className="flex-1 bg-white/10 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400"
                   />
                   <button
                     onClick={generateRandomToken}
                     className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg"
                   >
-                    🎲 随机
+                    🎲 Random
                   </button>
                 </div>
                 <div className="mt-2 flex flex-wrap gap-2">
@@ -470,13 +470,13 @@ const MemeGenerator = () => {
               {/* 文字编辑 */}
               <div className="space-y-4">
                 <div>
-                  <label className="block text-gray-300 mb-3">顶部文字</label>
+                  <label className="block text-gray-300 mb-3">Top Text</label>
                   <div className="flex space-x-2">
                     <input
                       type="text"
                       value={topText}
                       onChange={(e) => setTopText(e.target.value)}
-                      placeholder="输入顶部文字"
+                      placeholder="Enter top text"
                       className="flex-1 bg-white/10 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400"
                     />
                     <button
@@ -489,13 +489,13 @@ const MemeGenerator = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 mb-3">底部文字</label>
+                  <label className="block text-gray-300 mb-3">Bottom Text</label>
                   <div className="flex space-x-2">
                     <input
                       type="text"
                       value={bottomText}
                       onChange={(e) => setBottomText(e.target.value)}
-                      placeholder="输入底部文字"
+                      placeholder="Enter bottom text"
                       className="flex-1 bg-white/10 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400"
                     />
                     <button
@@ -521,7 +521,7 @@ const MemeGenerator = () => {
                 disabled={isGenerating || (!selectedTemplate && !uploadedImage)}
                 className="w-full py-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 disabled:opacity-50 text-white rounded-lg font-semibold text-lg"
               >
-                {isGenerating ? '🎨 生成中...' : '🎨 生成Meme'}
+                {isGenerating ? '🎨 Generating...' : '🎨 Generate Meme'}
               </button>
             </div>
 
@@ -554,13 +554,13 @@ const MemeGenerator = () => {
                       onClick={downloadMeme}
                       className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold"
                     >
-                      💾 下载
+                      💾 Download
                     </button>
                     <button
                       onClick={shareMeme}
                       className="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg font-semibold"
                     >
-                      📤 分享
+                      📤 Share
                     </button>
                   </div>
                 </div>

@@ -2,14 +2,54 @@ import React from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import SimpleWalletProvider from '../components/SimpleWalletProvider'
+import { WalletProvider } from '../components/SimpleWalletProvider'
+import ErrorBoundary from '../components/ErrorBoundary'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'NoStrategy - 嘲讽微策略的Meme网站',
-  description: 'NoStrategy - 一个专门嘲讽微策略的meme网站，让散户找到共鸣！',
-  keywords: 'NoStrategy, meme, 微策略, 加密货币, 散户',
+  title: 'NoStrategy - Meme Site Mocking MicroStrategy',
+  description: 'NoStrategy - A meme site dedicated to mocking MicroStrategy, helping retail investors find resonance!',
+  keywords: 'NoStrategy, meme, MicroStrategy, cryptocurrency, retail investors',
+  icons: {
+    icon: [
+      { url: '/logos/NoStrategy.png', type: 'image/png' },
+      { url: '/favicon.ico', type: 'image/png' }
+    ],
+    shortcut: '/logos/NoStrategy.png',
+    apple: [
+      { url: '/logos/NoStrategy.png', type: 'image/png' }
+    ]
+  },
+  manifest: '/manifest.json',
+      openGraph: {
+      title: 'NoStrategy - Meme Site Mocking MicroStrategy',
+      description: 'Strategy is fake, feeling is real!',
+      type: 'website',
+      url: 'https://nostrategy.com',
+      siteName: 'NoStrategy',
+      images: [
+        {
+          url: '/logos/NoStrategy.png',
+          width: 32,
+          height: 32,
+          alt: 'NoStrategy Logo'
+        }
+      ]
+    },
+  twitter: {
+    card: 'summary',
+    title: 'NoStrategy - Meme Site Mocking MicroStrategy',
+    description: 'Strategy is fake, feeling is real!',
+    images: ['/logos/NoStrategy.png']
+  }
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: '#7C3AED',
 }
 
 export default function RootLayout({
@@ -18,11 +58,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="zh-CN">
+    <html lang="en">
       <body className={inter.className}>
-        <SimpleWalletProvider>
-          {children}
-        </SimpleWalletProvider>
+        <ErrorBoundary>
+          <WalletProvider>
+            {children}
+          </WalletProvider>
+        </ErrorBoundary>
       </body>
     </html>
   )

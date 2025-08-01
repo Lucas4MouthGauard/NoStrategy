@@ -36,41 +36,41 @@ const ChatRoom = () => {
   const [chatRooms, setChatRooms] = useState<ChatRoom[]>([
     {
       id: 'general',
-      name: '通用讨论',
+      name: 'General Discussion',
       emoji: '💬',
-      description: '一般性讨论和闲聊',
+      description: 'General discussion and chat',
       userCount: 156,
       messages: []
     },
     {
       id: 'strategy',
-      name: '策略分享',
+      name: 'Strategy Sharing',
       emoji: '📈',
-      description: '分享投资策略和心得',
+      description: 'Share investment strategies and insights',
       userCount: 89,
       messages: []
     },
     {
       id: 'meme',
-      name: 'Meme分享',
+      name: 'Meme Sharing',
       emoji: '🎭',
-      description: '分享有趣的Meme',
+      description: 'Share interesting memes',
       userCount: 234,
       messages: []
     },
     {
       id: 'charts',
-      name: '图表分析',
+      name: 'Chart Analysis',
       emoji: '📊',
-      description: '讨论技术分析和图表',
+      description: 'Discuss technical analysis and charts',
       userCount: 67,
       messages: []
     },
     {
       id: 'news',
-      name: '新闻资讯',
+      name: 'News & Info',
       emoji: '📰',
-      description: '加密货币新闻和资讯',
+      description: 'Cryptocurrency news and information',
       userCount: 123,
       messages: []
     }
@@ -201,8 +201,8 @@ const ChatRoom = () => {
       <div className="max-w-6xl mx-auto p-6">
         <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-8 text-center">
           <div className="text-6xl mb-4">💬</div>
-          <h2 className="text-2xl font-bold text-white mb-4">实时聊天室</h2>
-          <p className="text-gray-300 mb-6">连接钱包以参与讨论</p>
+          <h2 className="text-2xl font-bold text-white mb-4">Real-time Chat Room</h2>
+          <p className="text-gray-300 mb-6">Connect wallet to join discussions</p>
           <SimpleWalletButton />
         </div>
       </div>
@@ -214,13 +214,13 @@ const ChatRoom = () => {
       {/* 标题和连接状态 */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">💬 实时聊天室</h1>
-          <p className="text-gray-300">与其他用户讨论策略、分享Meme</p>
+          <h1 className="text-3xl font-bold text-white mb-2">💬 Real-time Chat Room</h1>
+          <p className="text-gray-300">Discuss strategies and share memes with other users</p>
         </div>
         <div className="flex items-center space-x-4">
           <div className="text-right">
-            <div className="text-white font-semibold">{onlineUsers} 在线</div>
-            <div className="text-gray-400 text-sm">活跃用户</div>
+            <div className="text-white font-semibold">{onlineUsers} Online</div>
+            <div className="text-gray-400 text-sm">Active Users</div>
           </div>
           <SimpleWalletButton />
         </div>
@@ -230,9 +230,9 @@ const ChatRoom = () => {
       <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 mb-6">
         <div className="flex space-x-4">
           {[
-            { id: 'chat', name: '聊天', icon: '💬' },
-            { id: 'rooms', name: '房间', icon: '🏠' },
-            { id: 'trending', name: '热门', icon: '🔥' }
+            { id: 'chat', name: 'Chat', icon: '💬' },
+            { id: 'rooms', name: 'Rooms', icon: '🏠' },
+            { id: 'trending', name: 'Trending', icon: '🔥' }
           ].map((tab) => (
             <button
               key={tab.id}
@@ -256,7 +256,7 @@ const ChatRoom = () => {
           {/* 聊天室列表 */}
           <div className="lg:col-span-1">
             <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-4">
-              <h3 className="text-lg font-bold text-white mb-4">🏠 聊天室</h3>
+              <h3 className="text-lg font-bold text-white mb-4">🏠 Chat Rooms</h3>
               <div className="space-y-2">
                 {chatRooms.map((room) => (
                   <button
