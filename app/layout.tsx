@@ -12,14 +12,9 @@ export const metadata: Metadata = {
   description: 'NoStrategy - A meme site dedicated to mocking MicroStrategy, helping retail investors find resonance!',
   keywords: 'NoStrategy, meme, MicroStrategy, cryptocurrency, retail investors',
   icons: {
-    icon: [
-      { url: '/logos/NoStrategy.png', type: 'image/png' },
-      { url: '/favicon.ico', type: 'image/png' }
-    ],
+    icon: '/logos/NoStrategy.png',
     shortcut: '/logos/NoStrategy.png',
-    apple: [
-      { url: '/logos/NoStrategy.png', type: 'image/png' }
-    ]
+    apple: '/logos/NoStrategy.png',
   },
   manifest: '/manifest.json',
       openGraph: {
