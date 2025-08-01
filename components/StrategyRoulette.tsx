@@ -583,12 +583,12 @@ const StrategyRoulette = () => {
                     >
                       🎰 Spin Again
                     </button>
-                    <button
-                      onClick={() => alert('Buy $NoStrategy - Coming Soon!')}
-                      className="flex-1 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white py-2 px-4 rounded-lg font-semibold"
-                    >
-                      🚀 Buy $NoStrategy
-                    </button>
+                            <button
+          onClick={() => window.open('https://letsbonk.fun/token/CkEdG6cUUEuDjMnivruciM45KeQ8NNRioW2vnhGJbonk', '_blank')}
+          className="flex-1 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white py-2 px-4 rounded-lg font-semibold"
+        >
+          🚀 Buy $NoStrategy
+        </button>
                   </div>
                 </div>
               ) : (

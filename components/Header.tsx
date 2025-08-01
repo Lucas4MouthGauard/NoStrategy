@@ -28,13 +28,13 @@ const Header = () => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <button
-              onClick={() => alert('Buy $NoStrategy - Coming Soon!')}
-              className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2"
-            >
-              <span>🚀</span>
-              <span>Buy $NoStrategy</span>
-            </button>
+                    <button
+          onClick={() => window.open('https://letsbonk.fun/token/CkEdG6cUUEuDjMnivruciM45KeQ8NNRioW2vnhGJbonk', '_blank')}
+          className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2"
+        >
+          <span>🚀</span>
+          <span>Buy $NoStrategy</span>
+        </button>
             {connected && (
               <div className="text-sm text-green-400">
                 ✅ Connected
