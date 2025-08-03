@@ -31,7 +31,7 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Follow Us</h4>
             <div className="space-y-2">
-              <a href="https://x.com/NoStrategy_xyz" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors text-sm">
+              <a href="https://x.com/nostrategy_meme" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors text-sm">
                 <span>🐦</span>
                 <span>Twitter</span>
               </a>

@@ -29,8 +29,8 @@ const Header = () => {
 
           <div className="flex items-center space-x-4">
                     <button
-          onClick={() => window.open('https://letsbonk.fun/token/CkEdG6cUUEuDjMnivruciM45KeQ8NNRioW2vnhGJbonk', '_blank')}
-          className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2"
+          onClick={() => alert('Buy链接暂不可用')}
+          className="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2 cursor-not-allowed opacity-70"
         >
           <span>🚀</span>
           <span>Buy $NoStrategy</span>
