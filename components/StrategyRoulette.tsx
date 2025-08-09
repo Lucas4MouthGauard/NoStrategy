@@ -584,8 +584,8 @@ const StrategyRoulette = () => {
                       🎰 Spin Again
                     </button>
                             <button
-          onClick={() => alert('Buy link temporarily unavailable')}
-          className="flex-1 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white py-2 px-4 rounded-lg font-semibold cursor-not-allowed opacity-70"
+          onClick={() => window.open('https://pump.fun/coin/7VWaB8zerNs5WypJk4NPUnDm71mkicqmp38WVo2Rpump', '_blank')}
+          className="flex-1 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white py-2 px-4 rounded-lg font-semibold"
         >
           🚀 Buy $NoStrategy
         </button>

@@ -29,8 +29,8 @@ const Header = () => {
 
           <div className="flex items-center space-x-4">
                     <button
-          onClick={() => alert('Buy link temporarily unavailable')}
-          className="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2 cursor-not-allowed opacity-70"
+          onClick={() => window.open('https://pump.fun/coin/7VWaB8zerNs5WypJk4NPUnDm71mkicqmp38WVo2Rpump', '_blank')}
+          className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2"
         >
           <span>🚀</span>
           <span>Buy $NoStrategy</span>
